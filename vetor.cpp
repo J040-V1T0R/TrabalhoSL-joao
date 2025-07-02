@@ -16,3 +16,22 @@ int main() {
         // Lê um número e armazena-o na posição 'i' do 'vetor'
         std::cin >> vetor[i];
     }
+    
+      // Verifica se o vetor não está vazio para evitar erros com std::max_element
+    if (n > 0) {
+        // Encontra o maior elemento no vetor usando std::max_element
+        // std::max_element retorna um iterador para o maior elemento,
+        // então usamos '*' para obter o valor que o iterador aponta.
+        int maior_valor = *std::max_element(vetor.begin(), vetor.end());
+
+        // Imprime o maior valor encontrado, seguido por uma quebra de linha
+        std::cout << maior_valor << std::endl;
+    } else {
+        // Caso 'n' seja 0 (vetor vazio), embora o problema implique n > 0.
+        // Você poderia adicionar um tratamento de erro ou mensagem aqui, se necessário.
+        // Para este problema, assumimos que 'n' sempre será maior que 0.
+    }
+
+    // Retorna 0 para indicar que o programa foi executado com sucesso
+    return 0;
+}
