@@ -25,7 +25,7 @@ int isPrime(int num) {
     // Se um número tem um divisor maior que sua raiz quadrada,
     // ele também terá um divisor menor que sua raiz quadrada.
     // Portanto, basta verificar até a raiz quadrada.
-    
+
     for (int i = 3; i <= static_cast<int>(std::sqrt(num)); i += 2) {
         if (num % i == 0) {
             return 0; // Falso (encontrou um divisor, então não é primo)
@@ -34,4 +34,20 @@ int isPrime(int num) {
 
     // Se não encontrou nenhum divisor, o número é primo
     return 1; // Verdadeiro (é primo)
+}
+
+int main() {
+    int numero;
+
+    std::cout << "Digite um número inteiro: ";
+    std::cin >> numero;
+
+    // A função isPrime agora retorna 1 para verdadeiro e 0 para falso
+    if (isPrime(numero) == 1) { // Verifica se o retorno é 1 (primo)
+        std::cout << numero << " é um número primo." << std::endl;
+    } else { // Se o retorno for 0 (não primo)
+        std::cout << numero << " não é um número primo." << std::endl;
+    }
+
+    return 0;
 }
