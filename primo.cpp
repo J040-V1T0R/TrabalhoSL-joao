@@ -19,3 +19,19 @@ int isPrime(int num) {
     if (num % 2 == 0) {
         return 0; // Falso (não é primo)
     }
+
+    // Verifica divisibilidade apenas por números ímpares a partir de 3
+    // até a raiz quadrada do número.
+    // Se um número tem um divisor maior que sua raiz quadrada,
+    // ele também terá um divisor menor que sua raiz quadrada.
+    // Portanto, basta verificar até a raiz quadrada.
+    
+    for (int i = 3; i <= static_cast<int>(std::sqrt(num)); i += 2) {
+        if (num % i == 0) {
+            return 0; // Falso (encontrou um divisor, então não é primo)
+        }
+    }
+
+    // Se não encontrou nenhum divisor, o número é primo
+    return 1; // Verdadeiro (é primo)
+}
