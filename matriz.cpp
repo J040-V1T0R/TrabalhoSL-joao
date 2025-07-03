@@ -83,4 +83,45 @@ vector<vector<int>> multiplicarMatrizes(const vector<vector<int>>& mat1,
         }
     }
     return resultado; // Retorna a matriz resultante da multiplicação
+    
+}
+// Função principal do programa
+int main() {
+    int n;
+    // Lê o tamanho N das matrizes
+    cin >> n;
+
+    // Lê as duas matrizes
+    vector<vector<int>> matriz1 = lerMatriz(n);
+    vector<vector<int>> matriz2 = lerMatriz(n);
+
+    char operacao;
+    // Lê o caractere que indica a operação
+    cin >> operacao;
+
+    vector<vector<int>> matrizResultante; // Declara a matriz que irá armazenar o resultado
+
+    // Usa um switch para decidir qual operação executar com base no caractere lido
+    switch (operacao) {
+        case 'a': // Se a operação for 'a' (adição)
+        case 'A': // ou 'A'
+            matrizResultante = somarMatrizes(matriz1, matriz2, n);
+            break;
+        case 's': // Se a operação for 's' (subtração)
+        case 'S': // ou 'S'
+            matrizResultante = subtrairMatrizes(matriz1, matriz2, n);
+            break;
+        case 'm': // Se a operação for 'm' (multiplicação)
+        case 'M': // ou 'M'
+            matrizResultante = multiplicarMatrizes(matriz1, matriz2, n);
+            break;
+        default: // Se o caractere da operação for inválido
+            cout << "Operação inválida." << endl;
+            return 1; // Retorna 1 para indicar que houve um erro
+    }
+
+    // Imprime a matriz resultante da operação
+    imprimirMatriz(matrizResultante);
+
+    return 0; // Retorna 0 para indicar que o programa foi executado com sucesso
 }
