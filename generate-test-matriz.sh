@@ -1,37 +1,40 @@
 #!/bin/bash
 
-# Gera um tamanho aleatório para a matriz entre 2 e 5
+# Gera tamanho aleatório da matriz
 N=$((RANDOM % 4 + 2))
 
 # Operações possíveis
 OPERACOES=("a" "s" "m")
-OPERACAO=${OPERACOES[$RANDOM % ${#OPERACOES[@]}]}
+OPERACAO=${OPERACOES[$RANDOM % 3]}
 
-# Cria o arquivo de entrada
-echo $N > input.txt
+# Arquivos específicos
+INPUT="matriz_input.txt"
+OUTPUT="matriz_output.txt"
 
-# Gera primeira matriz (N x N)
+# Cria entrada
+echo "$N" > "$INPUT"
+
+# Primeira matriz
 for ((i = 0; i < N * N; i++)); do
-    echo $((RANDOM % 21 - 10)) >> input.txt
+    echo $((RANDOM % 21 - 10)) >> "$INPUT"
 done
 
-# Gera segunda matriz (N x N)
+# Segunda matriz
 for ((i = 0; i < N * N; i++)); do
-    echo $((RANDOM % 21 - 10)) >> input.txt
+    echo $((RANDOM % 21 - 10)) >> "$INPUT"
 done
 
-# Adiciona operação no final
-echo $OPERACAO >> input.txt
+# Operação
+echo "$OPERACAO" >> "$INPUT"
 
-# Compila o programa usando o Makefile
+# Compila o programa
 make matriz > /dev/null
 
-# Executa o programa com o input.txt e salva a saída
-./matriz < input.txt > output.txt
+# Executa e salva saída
+./matriz < "$INPUT" > "$OUTPUT"
 
-# Mostra a entrada e a saída
-echo "=== Entrada de teste (input.txt) ==="
-cat input.txt
-
-echo -e "\n=== Saída produzida pelo programa (output.txt) ==="
-cat output.txt
+# Mostra entrada e saída
+echo "=== Entrada ($INPUT) ==="
+cat "$INPUT"
+echo -e "\n=== Saída ($OUTPUT) ==="
+cat "$OUTPUT"
