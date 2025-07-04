@@ -20,9 +20,9 @@ Você pode compilar todos os programas ao mesmo tempo ou individualmente.
 bash
 
 ### Compilar separadamente 
-make primo
-make vetor
-make matriz
+make primo  
+make vetor  
+make matriz  
 
 ### Limpar executáveis:
 make clean
@@ -31,9 +31,9 @@ make clean
 Há três scripts que geram entradas aleatórias e executam os programas automaticamente.
 
 ### Executar testes:
-./generate-test-primo.sh     # Gera primo_input.txt e primo_output.txt
-./generate-test-vetor.sh     # Gera vetor_input.txt e vetor_output.txt
-./generate-test-matriz.sh    # Gera matriz_input.txt e matriz_output.txt
+./generate-test-primo.sh     # Gera primo_input.txt e primo_output.txt  
+./generate-test-vetor.sh     # Gera vetor_input.txt e vetor_output.txt  
+./generate-test-matriz.sh    # Gera matriz_input.txt e matriz_output.txt  
 
 
 
