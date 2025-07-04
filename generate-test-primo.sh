@@ -1,20 +1,23 @@
 #!/bin/bash
 
-# Gera um número aleatório entre -10 e 100
+# Gera número aleatório entre -10 e 100
 NUM=$((RANDOM % 111 - 10))
 
-# Cria o arquivo de entrada com o número gerado
-echo $NUM > input.txt
+# Arquivos específicos
+INPUT="primo_input.txt"
+OUTPUT="primo_output.txt"
 
-# Compila o programa usando o Makefile
+# Cria arquivo de entrada
+echo "$NUM" > "$INPUT"
+
+# Compila o programa
 make primo > /dev/null
 
-# Executa o programa com input.txt como entrada e salva em output.txt
-./primo < input.txt > output.txt
+# Executa e salva saída
+./primo < "$INPUT" > "$OUTPUT"
 
-# Mostra a entrada e a saída
-echo "=== Entrada de teste (input.txt) ==="
-cat input.txt
-
-echo -e "\n=== Saída produzida pelo programa (output.txt) ==="
-cat output.txt
+# Mostra entrada e saída
+echo "=== Entrada ($INPUT) ==="
+cat "$INPUT"
+echo -e "\n=== Saída ($OUTPUT) ==="
+cat "$OUTPUT"
