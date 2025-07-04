@@ -39,14 +39,14 @@ int isPrime(int num) {
 int main() {
     int numero;
 
-    std::cout << "Digite um número inteiro: ";
+    std::cout << "Digite um numero inteiro: ";
     std::cin >> numero;
 
     // A função isPrime agora retorna 1 para verdadeiro e 0 para falso
     if (isPrime(numero) == 1) { // Verifica se o retorno é 1 (primo)
-        std::cout << numero << " é um número primo." << std::endl;
+        std::cout << numero << " e um numero primo." << std::endl;
     } else { // Se o retorno for 0 (não primo)
-        std::cout << numero << " não é um número primo." << std::endl;
+        std::cout << numero << " nao e um numero primo." << std::endl;
     }
 
     return 0;
